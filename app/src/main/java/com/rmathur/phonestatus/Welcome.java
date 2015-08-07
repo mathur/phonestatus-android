@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import com.loopj.android.http.*;
 
 import org.apache.http.Header;
@@ -54,12 +53,13 @@ public class Welcome extends Activity {
 
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] response) {
-                        // ayy
+                        String s = new String(response);
+                        Log.e("success bitches", statusCode + s);
                     }
 
                     @Override
                     public void onFailure(int statusCode, Header[] headers, byte[] errorResponse, Throwable e) {
-                        // called when response HTTP status is "4XX" (eg. 401, 403, 404)
+                        Log.e("phail", "error" + statusCode);
                     }
 
                     @Override
