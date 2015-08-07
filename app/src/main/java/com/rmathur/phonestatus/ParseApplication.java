@@ -1,0 +1,29 @@
+package com.rmathur.phonestatus;
+
+import com.parse.Parse;
+import com.parse.ParseACL;
+
+import com.parse.ParseUser;
+
+import android.app.Application;
+
+public class ParseApplication extends Application {
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        // Add your initialization code here
+        Parse.initialize(this, "HZGm8zfMuFMfTnxvLi1i1kLBj2l4jJtxsZ3chuCY", "nU3O4iqKWrDSbc5hsmv3dFk47pAZG0FKtWPRWAfe");
+
+        ParseUser.enableAutomaticUser();
+        ParseACL defaultACL = new ParseACL();
+
+        // If you would like all objects to be private by default, remove this
+        // line.
+        defaultACL.setPublicReadAccess(true);
+
+        ParseACL.setDefaultACL(defaultACL, true);
+    }
+
+}
